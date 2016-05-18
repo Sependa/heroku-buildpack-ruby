@@ -96,6 +96,7 @@ WARNING
       setup_export
       setup_profiled
       allow_git do
+        run_external_script
         install_bundler_in_app
         build_bundler
         post_bundler
@@ -454,6 +455,12 @@ ERROR
       Dir.chdir(slug_vendor_base) do |dir|
         `cp -R #{bundler.bundler_path}/. .`
       end
+    end
+  end
+
+  def run_external_script
+    if File.exists?('heroku_buildpack_scripts/dothis.bash')
+      pipe('/bin/bash heroku_buildpack_scripts/dothis.bash')
     end
   end
 
