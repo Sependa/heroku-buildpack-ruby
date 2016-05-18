@@ -96,7 +96,6 @@ WARNING
       setup_export
       setup_profiled
       allow_git do
-        run_external_script
         install_bundler_in_app
         build_bundler
         post_bundler
@@ -611,6 +610,7 @@ WARNING
           puts "Running: #{bundle_command}"
           instrument "ruby.bundle_install" do
             bundle_time = Benchmark.realtime do
+              run_external_script
               bundler_output << pipe("#{bundle_command} --no-clean", out: "2>&1", env: env_vars, user_env: true)
             end
           end
