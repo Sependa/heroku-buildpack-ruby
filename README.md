@@ -5,6 +5,10 @@ This is a [Heroku Buildpack](http://devcenter.heroku.com/articles/buildpacks) fo
 
 This buildpack requires 64-bit Linux.
 
+## ! Changes in this fork
+
+Added ability to run custom script on deployment
+
 ## Usage
 
 ### Ruby
