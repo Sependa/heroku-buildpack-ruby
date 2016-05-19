@@ -458,8 +458,8 @@ ERROR
   end
 
   def run_external_script
-    if File.exists?('heroku_buildpack_scripts/dothis.bash')
-      pipe("env GEM_PATH=#{ENV["GEM_PATH"]} GEM_HOME=#{ENV["GEM_HOME"]} /bin/bash heroku_buildpack_scripts/dothis.bash")
+    if File.exists?('scripts/heroku_buildpack.sh')
+      pipe("env GEM_PATH=#{ENV["GEM_PATH"]} GEM_HOME=#{ENV["GEM_HOME"]} /bin/bash scripts/heroku_buildpack.sh")
     end
   end
 
